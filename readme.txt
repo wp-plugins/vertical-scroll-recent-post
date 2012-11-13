@@ -5,8 +5,10 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Tags: Vertical, scroll, recent, post
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 10.0
+Tested up to: 3.4.2
+Stable tag: 10.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
 Vertical scroll recent post plugin scroll the recent post title in the widget, the post scroll from bottom to top vertically.
 
@@ -60,13 +62,17 @@ Q4. Why only few characters display in scroll title?
 
 == Upgrade Notice ==
 
+= 10.1 =
+
+Tested up to 3.4.2
+
 = 10.0 =
 
 New demo link, www.gopiplus.com
 
 = 9.0 =
 
-Tested uptp 3.4
+Tested up to 3.4
 
 = 8.0 =
 
@@ -75,16 +81,16 @@ Reset Query issue has been fixed.
 
 = 7.0 =
 
-Tested uptp 3.3
+Tested up to 3.3
 
 = 6.0 =			
 
 Security fixes (Only admin user can see the plugin menu in the dashboard)				
-Tested upto 3.1.3	
+Tested up to 3.1.3	
 
 = 5.0 =
 
-Tested upto 3.0
+Tested up to 3.0
 
 = 4.0 =
 
@@ -108,13 +114,17 @@ first version
 
 == Changelog ==
 
+= 10.1 =
+
+Tested up to 3.4.2
+
 = 10.0 =
 
 New demo link, www.gopiplus.com
 
 = 9.0 =
 
-Tested uptp 3.4
+Tested up to 3.4
 
 = 8.0 =
 
@@ -123,12 +133,12 @@ Reset Query issue has been fixed.
 
 = 7.0 =
 
-Tested uptp 3.3
+Tested up to 3.3
 
 = 6.0 =			
 
 Security fixes (Only admin user can see the plugin menu in the dashboard)				
-Tested upto 3.1.3	
+Tested up to 3.1.3	
 
 = 5.0 =
 
@@ -152,4 +162,4 @@ CSS height problem solved
 
 = 1.0 =
 
-first version
+First version

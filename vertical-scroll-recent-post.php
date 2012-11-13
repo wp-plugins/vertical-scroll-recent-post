@@ -6,9 +6,11 @@ Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Description: Vertical scroll recent post plugin scroll the recent post title in the widget, the post scroll from bottom to top vertically, check the live demo.
 Author: Gopi.R
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
-Version: 10.0
+Version: 10.1
 Tags: Vertical, scroll, recent, post, title, widget
 vsrp means Vertical scroll recent post
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 function vsrp() 
@@ -18,7 +20,6 @@ function vsrp()
 	
 	$num_user = get_option('vsrp_select_num_user');
 	$dis_num_user = get_option('vsrp_dis_num_user');
-
 	$dis_num_height = get_option('vsrp_dis_num_height');
 	$vsrp_select_categories = get_option('vsrp_select_categories');
 	$vsrp_select_orderby = get_option('vsrp_select_orderby');
@@ -37,10 +38,7 @@ function vsrp()
 		$dis_num_user = 5;
 	}
 
-
 	$sSql = query_posts('cat='.$vsrp_select_categories.'&orderby='.$vsrp_select_orderby.'&order='.$vsrp_select_order.'&showposts='.$num_user);
-
-	//$vsrp_data = $wpdb->get_results("SELECT ID,post_title,post_date FROM ". $wpdb->prefix . "posts WHERE 1 and post_type='post' and post_status = 'publish' order by ID desc limit 0, $num_user");
 
 	$vsrp_data = $sSql;
 	$vsrp_html = "";
@@ -137,14 +135,12 @@ function vsrp_widget($args)
 	echo $after_title;
 	vsrp();
 	echo $after_widget;
-
 }
 
 function vsrp_admin_options() 
 {
 	global $wpdb;
 	?>
-
 	<div class="wrap">
     <h2>Vertical scroll recent post</h2>
     </div>
@@ -215,18 +211,20 @@ function vsrp_admin_options()
 	</td></tr></table>
 	</form>
 	<h2>Plugin configuration</h2>
-	Option 1.Go to widget menu and drag and drop the "Vertical scroll recent post" widget to your sidebar location. <br />
-	Option 2. Copy and past the below mentioned code to your desired template location.
-
+	<ul>
+	<li>Option 1.Go to widget menu and drag and drop the "Vertical scroll recent post" widget to your sidebar location.</li>
+	<li>Option 2. Copy and past the below mentioned code to your desired template location.</li>
+	</ul>
     <h2>Paste the below code to your desired template location!</h2>
     <div style="padding-top:7px;padding-bottom:7px;">
     <code style="padding:7px;">
     &lt;?php if (function_exists (vsrp)) vsrp(); ?&gt;
     </code></div>
-    <h2>About Plugin</h2>
+    <h2>About plugin</h2>
     Check official website for live demo and help <a target="_blank" href='http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/'>click here</a><br /> 
     <?php
 }
+
 function vsrp_add_to_menu() 
 {
 	add_options_page('Vertical scroll recent post', 'Vertical scroll recent post', 'manage_options', __FILE__, 'vsrp_admin_options' );
@@ -258,8 +256,6 @@ function vsrp_add_javascript_files()
 	}	
 }
 
-add_action('init', 'vsrp_add_javascript_files');
-
 function vsrp_deactivation() 
 {
 	delete_option('vsrp_title');
@@ -271,6 +267,7 @@ function vsrp_deactivation()
 	delete_option('vsrp_select_order');
 }
 
+add_action('init', 'vsrp_add_javascript_files');
 add_action("plugins_loaded", "vsrp_init");
 register_activation_hook(__FILE__, 'vsrp_install');
 register_deactivation_hook(__FILE__, 'vsrp_deactivation');
