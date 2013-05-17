@@ -4,9 +4,9 @@ Donate link: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Tags: Vertical, scroll, recent, post
-Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 10.2
+Requires at least: 3.4
+Tested up to: 3.6
+Stable tag: 11.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -20,7 +20,7 @@ Check official website for live demo [http://www.gopiplus.com/work/2010/07/18/ve
 *  [More Information](http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/)			
 *  [User Comments](http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/)		
 
-Vertical scroll recent post plugin scroll the recent post title in the widget, the post scroll from bottom to top vertically. This is the best and fashionable way to show all the latest post to user. No coding language required to setup this plugin. Activate the plugin and drag and drop the widget into the sidebar. We have optional option to choose the particular category to scroll.
+Vertical scroll recent post plugin scroll the recent post title in the widget, the post scroll from bottom to top vertically. This is the best and fashionable way to show all the latest post to user. No coding language knowledge required to setup this plugin. Activate the plugin and drag and drop the widget into the sidebar. We have optional option to choose the particular category and order by option to scroll.
 
 = Features of this plugin = 			
 
@@ -30,11 +30,11 @@ Vertical scroll recent post plugin scroll the recent post title in the widget, t
 * Option to choose category.
 * Option to select order.
 	
-We can use this plug-in in two different way.	
+Plugin configuration.	
 
-1.	Go to widget menu and drag and drop the "Vertical scroll recent post" widget to your sidebar location.
+1.	Drag and drop the widget: Go to widget page under appearance tab, Drag and drop vertical scroll recent post widget into your side bar. It’s very easy.
  	
-2.	Copy and past the given code to your desired template location.	
+2.	Add directly in the theme: Use the given PHP code to add the gallery to your theme files (i.e PHP file).
 
 http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 
@@ -61,6 +61,10 @@ Q4. Why only few characters display in scroll title?
 2. http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 
 == Upgrade Notice ==
+
+= 11.0 =
+
+Tested up to 3.6
 
 = 10.2 =
 
@@ -117,6 +121,10 @@ CSS height problem solved
 first version
 
 == Changelog ==
+
+= 11.0 =
+
+Tested up to 3.6
 
 = 10.2 =
 
