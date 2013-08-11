@@ -6,7 +6,7 @@ Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Description: Vertical scroll recent post plugin scroll the recent post title in the widget, the post scroll from bottom to top vertically, check the live demo.
 Author: Gopi.R
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
-Version: 11.0
+Version: 11.1
 Tags: Vertical, scroll, recent, post, title, widget
 vsrp means Vertical scroll recent post
 License: GPLv2 or later
@@ -15,9 +15,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 function vsrp() 
 {
-	
 	global $wpdb;
-	
 	$num_user = get_option('vsrp_select_num_user');
 	$dis_num_user = get_option('vsrp_dis_num_user');
 	$dis_num_height = get_option('vsrp_dis_num_height');
@@ -142,94 +140,103 @@ function vsrp_admin_options()
 	global $wpdb;
 	?>
 	<div class="wrap">
-    <h2>Vertical scroll recent post</h2>
-    </div>
+	  <div class="form-wrap">
+		<div id="icon-edit" class="icon32"></div>
+		<h2>Vertical scroll recent post</h2>
+		<?php	
+		$vsrp_title = get_option('vsrp_title');
+		$vsrp_select_num_user = get_option('vsrp_select_num_user');
+		$vsrp_dis_num_user = get_option('vsrp_dis_num_user');
+		$vsrp_dis_num_height = get_option('vsrp_dis_num_height');
+		$vsrp_select_categories = get_option('vsrp_select_categories');
+		$vsrp_select_orderby = get_option('vsrp_select_orderby');
+		$vsrp_select_order = get_option('vsrp_select_order');
+		if (isset($_POST['vsrp_form_submit']) && $_POST['vsrp_form_submit'] == 'yes')
+		{
+			check_admin_referer('vsrp_form_setting');
+			$vsrp_title = stripslashes($_POST['vsrp_title']);
+			$vsrp_select_num_user = stripslashes($_POST['vsrp_select_num_user']);
+			$vsrp_dis_num_user = stripslashes($_POST['vsrp_dis_num_user']);
+			$vsrp_dis_num_height = stripslashes($_POST['vsrp_dis_num_height']);
+			$vsrp_select_categories = stripslashes($_POST['vsrp_select_categories']);
+			$vsrp_select_orderby = stripslashes($_POST['vsrp_select_orderby']);
+			$vsrp_select_order = stripslashes($_POST['vsrp_select_order']);
+			update_option('vsrp_title', $vsrp_title );
+			update_option('vsrp_select_num_user', $vsrp_select_num_user );
+			update_option('vsrp_dis_num_user', $vsrp_dis_num_user );
+			update_option('vsrp_dis_num_height', $vsrp_dis_num_height );
+			update_option('vsrp_select_categories', $vsrp_select_categories );
+			update_option('vsrp_select_orderby', $vsrp_select_orderby );
+			update_option('vsrp_select_order', $vsrp_select_order );
+			?>
+			<div class="updated fade">
+				<p><strong>Details successfully updated.</strong></p>
+			</div>
+			<?php
+		}
+		?>
+		<form name="vsrp_form" method="post" action="">
+		    <h3>Widget setting</h3>
+			
+			<label for="tag-width">Widget title</label>
+			<input name="vsrp_title" type="text" value="<?php echo $vsrp_title; ?>"  id="vsrp_title" size="50" maxlength="150">
+			<p>Please enter your widget title.</p>
+			
+			<label for="tag-width">Height</label>
+			<input name="vsrp_dis_num_height" type="text" value="<?php echo $vsrp_dis_num_height; ?>"  id="vsrp_dis_num_height" maxlength="4">
+			<p>Please enter your height. If any overlap in the scroll at front end, <br />You should arrange this height (increase/decrease this height). (Example: 65)</p>
+			
+			<label for="tag-width">Display count</label>
+			<input name="vsrp_dis_num_user" type="text" value="<?php echo $vsrp_dis_num_user; ?>"  id="vsrp_dis_num_user" maxlength="2">
+			<p>Please enter your display count. Display number of post at the same time in scroll. (Example: 5)</p>
+			
+			<label for="tag-width">Scroll post count</label>
+			<input name="vsrp_select_num_user" type="text" value="<?php echo $vsrp_select_num_user; ?>"  id="vsrp_select_num_user" maxlength="3">
+			<p>Please enter your scroll post count. Enter max number of post to scroll. (Example: 10)</p>
+			
+			<label for="tag-width">Enter categories</label>
+			<input name="vsrp_select_categories" type="text" value="<?php echo $vsrp_select_categories; ?>"  id="vsrp_select_categories" maxlength="150">
+			<p>Please enter category IDs, separated by commas.</p>
+			
+			<label for="tag-width">Select orderbys</label>
+			<select name="vsrp_select_orderby" id="vsrp_select_orderby">
+				<option value='ID' <?php if($vsrp_select_orderby == 'ID') { echo "selected='selected'" ; } ?>>ID</option>
+				<option value='author' <?php if($vsrp_select_orderby == 'author') { echo "selected='selected'" ; } ?>>Author</option>
+				<option value='title' <?php if($vsrp_select_orderby == 'title') { echo "selected='selected'" ; } ?>>Title</option>
+				<option value='rand' <?php if($vsrp_select_orderby == 'rand') { echo "selected='selected'" ; } ?>>Random order</option>
+				<option value='date' <?php if($vsrp_select_orderby == 'date') { echo "selected='selected'" ; } ?>>Date</option>
+				<option value='category' <?php if($vsrp_select_orderby == 'category') { echo "selected='selected'" ; } ?>>Category</option>
+				<option value='modified' <?php if($vsrp_select_orderby == 'modified') { echo "selected='selected'" ; } ?>>Modified</option>
+			</select>
+			<p>Please select your orderby option.</p>
+			
+			<label for="tag-width">Select order</label>
+			<select name="vsrp_select_order" id="vsrp_select_order">
+				<option value='ASC' <?php if($vsrp_select_order == 'ASC') { echo "selected='selected'" ; } ?>>ASC</option>
+				<option value='DESC' <?php if($vsrp_select_order == 'DESC') { echo "selected='selected'" ; } ?>>DESC</option>
+			</select>
+			<p>Please select your order.</p>
+			
+			<div style="height:10px;"></div>
+			<input name="vsrp_submit" id="vsrp_submit" class="button" value="Submit" type="submit" />&nbsp;
+			<a class="button" target="_blank" href="http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/">Help</a>
+			<input type="hidden" name="vsrp_form_submit" value="yes"/>
+			<?php wp_nonce_field('vsrp_form_setting'); ?>
+		</form>
+		</div>
+		<h3>Plugin configuration option</h3>
+		<ol>
+			<li>Add directly in to the theme using PHP code.</li>
+			<li>Drag and drop the widget to your sidebar.</li>
+		</ol>
+	  <p class="description">Check official website for more information <a target="_blank" href="http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/">click here</a></p>
+	</div>
 	<?php
-	$vsrp_title = get_option('vsrp_title');
-	$vsrp_select_num_user = get_option('vsrp_select_num_user');
-	$vsrp_dis_num_user = get_option('vsrp_dis_num_user');
-	$vsrp_dis_num_height = get_option('vsrp_dis_num_height');
-	$vsrp_select_categories = get_option('vsrp_select_categories');
-	$vsrp_select_orderby = get_option('vsrp_select_orderby');
-	$vsrp_select_order = get_option('vsrp_select_order');
-	
-	if (@$_POST['vsrp_submit']) 
-	{
-		$vsrp_title = stripslashes($_POST['vsrp_title']);
-		$vsrp_select_num_user = stripslashes($_POST['vsrp_select_num_user']);
-		$vsrp_dis_num_user = stripslashes($_POST['vsrp_dis_num_user']);
-		$vsrp_dis_num_height = stripslashes($_POST['vsrp_dis_num_height']);
-		$vsrp_select_categories = stripslashes($_POST['vsrp_select_categories']);
-		$vsrp_select_orderby = stripslashes($_POST['vsrp_select_orderby']);
-		$vsrp_select_order = stripslashes($_POST['vsrp_select_order']);
-		
-		update_option('vsrp_title', $vsrp_title );
-		update_option('vsrp_select_num_user', $vsrp_select_num_user );
-		update_option('vsrp_dis_num_user', $vsrp_dis_num_user );
-		update_option('vsrp_dis_num_height', $vsrp_dis_num_height );
-		update_option('vsrp_select_categories', $vsrp_select_categories );
-		update_option('vsrp_select_orderby', $vsrp_select_orderby );
-		update_option('vsrp_select_order', $vsrp_select_order );
-	}
-	
-	?>
-	<form name="vsrp_form" method="post" action="">
-	<table width="100%" border="0" cellspacing="0" cellpadding="3"><tr><td width="80%" align="left">
-	<?php
-	echo '<p>Title:<br><input  style="width: 200px;" type="text" value="';
-	echo $vsrp_title . '" name="vsrp_title" id="vsrp_title" /></p>';
-	
-	echo '<p>Each title height in scroll:<br><input  style="width: 100px;" type="text" value="';
-	echo $vsrp_dis_num_height . '" name="vsrp_dis_num_height" id="vsrp_dis_num_height" /> (Only Number)<br>';
-	echo 'If any overlap in the title at front end, you should arrange(increase/decrease) the above height</p>';
-	
-	echo '<p>Display number of post at the same time in scroll:<br><input  style="width: 100px;" type="text" value="';
-	echo $vsrp_dis_num_user . '" name="vsrp_dis_num_user" id="vsrp_dis_num_user" /></p>';
-	
-	echo '<p>Enter max number of post to scroll:<br><input  style="width: 100px;" type="text" value="';
-	echo $vsrp_select_num_user . '" name="vsrp_select_num_user" id="vsrp_select_num_user" /></p>';
-	
-	echo '<p>Enter Categories:<br><input  style="width: 200px;" type="text" value="';
-	echo $vsrp_select_categories . '" name="vsrp_select_categories" id="vsrp_select_categories" /> (Example: 1, 3, 4)<br>';
-	echo 'Category IDs, separated by commas.</p>';
-	
-	echo '<p>Enter Orderbys:<br><input  style="width: 200px;" type="text" value="';
-	echo $vsrp_select_orderby . '" name="vsrp_select_orderby" id="vsrp_select_orderby" /> (Any 1 from list)<br>';
-	echo 'ID/author/title/rand/date/category/modified</p>';
-
-	echo '<p>Enter order:<br><input  style="width: 100px;" type="text" value="';
-	echo $vsrp_select_order . '" name="vsrp_select_order" id="vsrp_select_order" />';
-	echo ' ASC/DESC </p>';
-
-
-	echo '<input name="vsrp_submit" id="vsrp_submit" lang="publish" class="button-primary" value="Update Setting" type="Submit" />';
-	
-	?>
-	</td>
-	<td width="20%" align="left" valign="middle" style="">
-
-	</td></tr></table>
-	</form>
-	<br />
-	<strong>Plugin configuration</strong>
-	<ul>
-		<li>Option 1. Drag and drop the widget "Vertical scroll recent post".</li>
-		<li>Option 2. Add directly in the theme to your desired template location using given PHP code.</li>
-	</ul>
-    <strong>Paste the below code to your desired template location!</strong>
-	<ul>
-    	<li><code style="padding:7px;">&lt;?php if (function_exists (vsrp)) vsrp(); ?&gt;</code><li>
-	</ul>
-    <strong>About plugin</strong>
-	<ul>
-    	<li>Check official website for live demo and help <a target="_blank" href="http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/">click here</a><li>
-	</ul>
-    <?php
 }
 
 function vsrp_add_to_menu() 
 {
-	add_options_page('Vertical scroll recent post', 'Vertical scroll recent post', 'manage_options', __FILE__, 'vsrp_admin_options' );
+	add_options_page('Vertical scroll recent post', 'Vertical scroll recent post', 'manage_options', 'vertical-scroll-recent-post', 'vsrp_admin_options' );
 }
 
 if (is_admin()) 
