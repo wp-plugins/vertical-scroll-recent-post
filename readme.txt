@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Tags: Vertical, scroll, recent, post
 Requires at least: 3.4
-Tested up to: 3.8
-Stable tag: 11.2
+Tested up to: 3.9
+Stable tag: 11.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -61,6 +61,10 @@ Q4. Why only few characters display in scroll title?
 2. Admin Screen. http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 
 == Upgrade Notice ==
+
+= 11.3 =
+
+1. Tested up to 3.9
 
 = 11.2 =
 
@@ -131,6 +135,10 @@ CSS height problem solved
 first version
 
 == Changelog ==
+
+= 11.3 =
+
+1. Tested up to 3.9
 
 = 11.2 =
 

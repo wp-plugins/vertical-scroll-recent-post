@@ -2,10 +2,10 @@
 /*
 Plugin Name: Vertical scroll recent post
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
-Description: Vertical scroll recent post plugin scroll the recent post title in the widget, the post scroll from bottom to top vertically, check the live demo.
-Author: Gopi.R
+Description: Vertical scroll recent post plugin scroll the recent post title in the widget, the post scroll from bottom to top vertically.
+Author: Gopi Ramasamy
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
-Version: 11.2
+Version: 11.3
 Tags: Vertical, scroll, recent, post, title, widget
 vsrp means Vertical scroll recent post
 License: GPLv2 or later
@@ -56,8 +56,8 @@ function vsrp()
 			$vsrp_html = $vsrp_html . "<a href='$get_permalink'>$vsrp_post_title</a>";
 			$vsrp_html = $vsrp_html . "</div>";
 			
-			$vsrp_post_title = mysql_real_escape_string(trim($vsrp_post_title));
-			$get_permalink = mysql_real_escape_string($get_permalink);
+			$vsrp_post_title = esc_sql(trim($vsrp_post_title));
+			$get_permalink = esc_sql($get_permalink);
 			$vsrp_x = $vsrp_x . "vsrp_array[$vsrp_count] = '<div class=\'vsrp_div\' style=\'height:$dis_height;padding:2px 0px 2px 0px;\'><a href=\'$get_permalink\'>$vsrp_post_title</a></div>'; ";	
 			$vsrp_count++;
 			
