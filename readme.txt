@@ -136,7 +136,8 @@ CSS height problem solved
 
 = 1.0 =
 
-first version
+First version
+
 
 == Changelog ==
 
