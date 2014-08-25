@@ -5,7 +5,7 @@ Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Description: Vertical scroll recent post plugin scroll the recent post title in the widget, the post scroll from bottom to top vertically.
 Author: Gopi Ramasamy
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
-Version: 11.3
+Version: 11.4
 Tags: Vertical, scroll, recent, post, title, widget
 vsrp means Vertical scroll recent post
 License: GPLv2 or later
