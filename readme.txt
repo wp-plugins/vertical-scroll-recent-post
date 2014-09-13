@@ -1,5 +1,5 @@
 === Vertical scroll recent post ===
-Contributors: www.gopiplus.com, gopiplus 
+Contributors: www.gopiplus.com, gopiplus, gopi_plus 
 Donate link: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
