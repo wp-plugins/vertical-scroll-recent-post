@@ -6,11 +6,11 @@ Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Tags: Vertical, scroll, recent, post
 Requires at least: 3.4
 Tested up to: 4.0
-Stable tag: 11.4
+Stable tag: 11.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
-Vertical scroll recent post plugin scroll the recent post title in the widget, the post scroll from bottom to top vertically.
+Vertical scroll recent post plugin scroll the recent post title's in the widget, the post scroll from bottom to top vertically.
 
 == Description ==
 
@@ -44,13 +44,13 @@ http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 
 == Frequently Asked Questions ==
 
-Q1. Where to update the plugin setting?
+Q1. Where to update the plugin settings?
 
 Q2. How to update number of recent posts to scroll?
 
-Q3. How many number of recent posts title will display at same time?
+Q3. How many number of recent posts title will be displayed at same time?
 
-Q4. Why only few characters display in scroll title?
+Q4. Why only few characters are displayed in scroll title?
 
 [Answer](http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/)
 
@@ -61,6 +61,12 @@ Q4. Why only few characters display in scroll title?
 2. Admin Screen. http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 
 == Upgrade Notice ==
+
+= 11.5 =
+
+1. Added more options like: display post's date, display link to category, control speed of scroll, seconds between scrolls.
+2. Added CSS file and removed most of the inline CSS, remained values change through PHP so a PHP file acting as CSS file is required.
+3. Converted all TABs to spaces and applied WordPress Code style recommendations.
 
 = 11.4 =
 
@@ -140,6 +146,12 @@ First version
 
 
 == Changelog ==
+
+= 11.5 =
+
+1. Added more options like: display post's date, display link to category, control speed of scroll, seconds between scrolls.
+2. Added CSS file and removed most of the inline CSS, remained values change through PHP so a PHP file acting as CSS file is required.
+3. Converted all TABs to spaces and applied WordPress Code style recommendations.
 
 = 11.4 =
 

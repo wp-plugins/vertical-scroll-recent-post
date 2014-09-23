@@ -1,0 +1,31 @@
+#vsrp_widget{
+    padding: 8px 0;
+}
+
+#vsrp_Holder{
+    text-align: left;
+    vertical-align: middle;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+    margin-left: 1px;
+}
+
+.vsrp_div{
+    padding: 2px 0px 2px 0px;
+    overflow: hidden;
+    line-height: 1.1;
+}
+
+.vsrp_error{
+    padding: 5px 0;
+}
+
+.vrsp_date {
+    font-size: 11px;
+}
+
+#vsrp_category_link{
+    float: right;
+    font-style: italic;
+}
