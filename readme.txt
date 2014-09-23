@@ -146,6 +146,11 @@ First version
 
 == Changelog ==
 
+= 11.5 =
+1. Added more options like: display post's date, display link to category, control speed of scroll, seconds between scrolls.
+2. Added CSS file and removed most of the inline CSS, remained values change through PHP so a PHP file acting as CSS file is required.
+3. Converted all TABs to spaces and applied Wordpress Code style recommendations.
+
 = 11.4 =
 
 1. Tested up to 4.0
