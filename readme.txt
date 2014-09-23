@@ -6,7 +6,7 @@ Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Tags: Vertical, scroll, recent, post
 Requires at least: 3.4
 Tested up to: 4.0
-Stable tag: 11.5
+Stable tag: 11.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -63,10 +63,9 @@ Q4. Why only few characters are displayed in scroll title?
 == Upgrade Notice ==
 
 = 11.5 =
-
 1. Added more options like: display post's date, display link to category, control speed of scroll, seconds between scrolls.
 2. Added CSS file and removed most of the inline CSS, remained values change through PHP so a PHP file acting as CSS file is required.
-3. Converted all TABs to spaces and applied WordPress Code style recommendations.
+3. Converted all TABs to spaces and applied Wordpress Code style recommendations.
 
 = 11.4 =
 
@@ -148,10 +147,9 @@ First version
 == Changelog ==
 
 = 11.5 =
-
 1. Added more options like: display post's date, display link to category, control speed of scroll, seconds between scrolls.
 2. Added CSS file and removed most of the inline CSS, remained values change through PHP so a PHP file acting as CSS file is required.
-3. Converted all TABs to spaces and applied WordPress Code style recommendations.
+3. Converted all TABs to spaces and applied Wordpress Code style recommendations.
 
 = 11.4 =
 
