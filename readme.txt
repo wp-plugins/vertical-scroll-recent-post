@@ -41,6 +41,7 @@ Vertical scroll recent post plugin scroll the recent post title in the widget, t
 
 Thanks to [Sudavar](https://profiles.wordpress.org/sudavar/) for the update 11.5
 
+
 == Installation ==
 
 [Installation Instruction and Configuration](http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/)
@@ -146,6 +147,7 @@ CSS height problem solved
 = 1.0 =
 
 First version
+
 
 
 == Changelog ==
