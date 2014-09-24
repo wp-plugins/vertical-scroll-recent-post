@@ -35,12 +35,11 @@ Vertical scroll recent post plugin scroll the recent post title in the widget, t
 = Plugin configuration = 
 
 *  Drag and drop the widget: Go to widget page under appearance tab, Drag and drop vertical scroll recent post widget into your side bar. Its very easy.
- 	
 *  Add directly in the theme: Use the given PHP code to add the gallery to your theme files (i.e PHP file).
 
-== Credits and Thanks == 
+= Credits and Thanks = 
 
-Thanks to Sudavar(https://profiles.wordpress.org/sudavar/) for the update 11.5
+Thanks to [Sudavar](https://profiles.wordpress.org/sudavar/) for the update 11.5
 
 == Installation ==
 
