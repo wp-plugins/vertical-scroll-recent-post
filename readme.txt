@@ -6,7 +6,7 @@ Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Tags: Vertical, scroll, recent, post
 Requires at least: 3.4
 Tested up to: 4.0
-Stable tag: 11.5
+Stable tag: 11.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -29,18 +29,14 @@ Vertical scroll recent post plugin scroll the recent post title in the widget, t
 * Scrolling so it occupies less space.
 * Option to choose category.
 * Option to select order.
-* Option to display posts date.
-* Option to control speed of scroll.
 	
-= Plugin configuration = 
+Plugin configuration.	
 
-*  Drag and drop the widget: Go to widget page under appearance tab, Drag and drop vertical scroll recent post widget into your side bar. Its very easy.
-*  Add directly in the theme: Use the given PHP code to add the gallery to your theme files (i.e PHP file).
+1.	Drag and drop the widget: Go to widget page under appearance tab, Drag and drop vertical scroll recent post widget into your side bar. It’s very easy.
+ 	
+2.	Add directly in the theme: Use the given PHP code to add the gallery to your theme files (i.e PHP file).
 
-= Credits and Thanks = 
-
-Thanks to [Sudavar](https://profiles.wordpress.org/sudavar/) for the update 11.5
-
+http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 
 == Installation ==
 
@@ -66,11 +62,17 @@ Q4. Why only few characters are displayed in scroll title?
 
 == Upgrade Notice ==
 
+= 11.6 =
+1. Changed options page layout, made it more user-friendly
+2. Added option to display thumbnail before post's title
+3. Changed option for displayed categories, users can now select them easier
+If something doesn't work, don't hesitate to contact support section in WordPress plugin's site
+
 = 11.5 =
 
 1. Added more options like: display post's date, display link to category, control speed of scroll, seconds between scrolls.
 2. Added CSS file and removed most of the inline CSS, remained values change through PHP so a PHP file acting as CSS file is required.
-3. Converted all TABs to spaces and applied Wordpress Code style recommendations.
+3. Converted all TABs to spaces and applied WordPress Code style recommendations.
 
 = 11.4 =
 
@@ -149,14 +151,18 @@ CSS height problem solved
 First version
 
 
-
 == Changelog ==
+
+= 11.6 =
+1. Changed options page layout, made it more user-friendly
+2. Added option to display thumbnail before post's title
+3. Changed option for displayed categories, users can now select them easier
 
 = 11.5 =
 
 1. Added more options like: display post's date, display link to category, control speed of scroll, seconds between scrolls.
 2. Added CSS file and removed most of the inline CSS, remained values change through PHP so a PHP file acting as CSS file is required.
-3. Converted all TABs to spaces and applied Wordpress Code style recommendations.
+3. Converted all TABs to spaces and applied WordPress Code style recommendations.
 
 = 11.4 =
 
@@ -233,4 +239,3 @@ CSS height problem solved
 = 1.0 =
 
 First version
-

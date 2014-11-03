@@ -12,7 +12,7 @@
 }
 
 .vsrp_div{
-    padding: 2px 0px 2px 0px;
+    padding: 4px 0;
     overflow: hidden;
     line-height: 1.1;
 }
@@ -26,6 +26,20 @@
 }
 
 #vsrp_category_link{
+    margin: 2% 0 0 0;
     float: right;
     font-style: italic;
+}
+
+.vsrp_text {
+    display: inline-block;
+    padding: 0 0 0 2%;
+    font-size: 12px;
+}
+
+.wp-post-image{
+    vertical-align: middle;
+}
+
+.vsrp_thumb{
 }

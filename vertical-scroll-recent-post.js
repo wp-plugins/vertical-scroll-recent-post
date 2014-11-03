@@ -69,3 +69,18 @@ function vsrp_content() {
     // start scrolling
     setTimeout( "vsrp_scroll();", vsrp_seconds * 1000 );
 }
+
+function vsrp_options() {
+    jQuery( document ).ready( function() {
+        jQuery( ".nav-tab-wrapper > a" ).click( function() {
+            jQuery( ".fade" ).hide();
+            jQuery( ".nav-tab-wrapper > a" ).removeClass( "nav-tab-active" );
+            jQuery( this ).addClass( "nav-tab-active" );
+            jQuery( ".table" ).addClass( "ui-tabs-hide" );
+            
+            var item_clicked = jQuery( this ).attr( "href" );
+            jQuery( item_clicked ).removeClass( "ui-tabs-hide" );
+            return false;
+        } );
+    } );
+}
