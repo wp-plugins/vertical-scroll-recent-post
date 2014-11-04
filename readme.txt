@@ -6,7 +6,8 @@ Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Tags: Vertical, scroll, recent, post
 Requires at least: 3.4
 Tested up to: 4.0
-Stable tag: 11.6
+Version: 11.7
+Stable tag: 11.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -62,7 +63,12 @@ Q4. Why only few characters are displayed in scroll title?
 
 == Upgrade Notice ==
 
+= 11.7 =
+
+1. Added date format option. Default option is WordPres date format.
+
 = 11.6 =
+
 1. Changed options page layout, made it more user-friendly
 2. Added option to display thumbnail before post's title
 3. Changed option for displayed categories, users can now select them easier
@@ -153,7 +159,12 @@ First version
 
 == Changelog ==
 
+= 11.7 =
+
+1. Added date format option. Default option is WordPres date format.
+
 = 11.6 =
+
 1. Changed options page layout, made it more user-friendly
 2. Added option to display thumbnail before post's title
 3. Changed option for displayed categories, users can now select them easier

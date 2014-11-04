@@ -5,7 +5,7 @@ Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Description: Vertical Scroll Recent Post plugin scroll the recent post title in the widget, the post scroll from bottom to top vertically.
 Author: Gopi Ramasamy
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
-Version: 11.6
+Version: 11.7
 Tags: Vertical, scroll, recent, post, title, widget
 vsrp means Vertical Scroll Recent Post
 License: GPLv2 or later
@@ -23,6 +23,7 @@ function vsrp() {
     $vsrp_select_orderby = get_option( 'vsrp_select_orderby' );
     $vsrp_select_order = get_option( 'vsrp_select_order' );
     $vsrp_show_date = get_option( 'vsrp_show_date' );
+    $vsrp_date_format = get_option( 'vsrp_date_format' );
     $vsrp_show_category_link = get_option( 'vsrp_show_category_link' );
     $vrsp_show_thumb = get_option( 'vrsp_show_thumb' );
     $vsrp_speed = get_option( 'vsrp_speed' );
@@ -52,7 +53,7 @@ function vsrp() {
                 $vsrp_post_title = substr( $vsrp_post_title, 0, $vsrp_title_length );
                 $vsrp_post_title .= '...';
             }
-            $vsrp_post_date = date( 'd/m/Y', strtotime( $vsrp_data->post_date ) );
+            $vsrp_post_date = date( $vsrp_date_format, strtotime( $vsrp_data->post_date ) );
 
             $dis_height = $dis_num_height."px";
             $vsrp_html = $vsrp_html . "<div class='vsrp_div' style='height:$dis_height;'>";
@@ -84,7 +85,7 @@ function vsrp() {
             $vsrp_height = ( $dis_num_height * $dis_num_user );
         } else {
             $vsrp_count = $vsrp_count;
-            $vsrp_height = ( $vsrp_count*$dis_num_height );
+            $vsrp_height = ( $vsrp_count * $dis_num_height );
         }
         $vsrp_height1 = $dis_num_height."px";
         ?>
@@ -136,6 +137,7 @@ function vsrp_install() {
     add_option( 'vsrp_select_orderby', "date" );
     add_option( 'vsrp_select_order', "DESC" );
     add_option( 'vsrp_show_date', 0 );
+    add_option( 'vsrp_date_format', get_option( 'date_format' ) );
     add_option( 'vsrp_show_category_link', 0 );
     add_option( 'vrsp_show_thumb', 0 );
     add_option( 'vsrp_speed', 2 );
@@ -176,6 +178,7 @@ function vsrp_admin_options() {
         $vsrp_select_orderby = get_option( 'vsrp_select_orderby' );
         $vsrp_select_order = get_option( 'vsrp_select_order' );
         $vsrp_show_date = get_option( 'vsrp_show_date' );
+        $vsrp_date_format = get_option( 'vsrp_date_format' );
         $vsrp_show_category_link = get_option( 'vsrp_show_category_link' );
         $vrsp_show_thumb = get_option( 'vrsp_show_thumb' );
         $vsrp_speed = get_option( 'vsrp_speed' );
@@ -194,6 +197,7 @@ function vsrp_admin_options() {
             $vsrp_speed = stripslashes( $_POST[ 'vsrp_speed' ] );
             $vsrp_seconds = stripslashes( $_POST[ 'vsrp_seconds' ] );
             $vsrp_show_date = stripslashes( $_POST[ 'vsrp_show_date' ] );
+            $vsrp_date_format = stripslashes( $_POST[ 'vsrp_date_format' ] );
             $vsrp_exclude_categories = stripslashes( $_POST[ 'vsrp_exclude_categories' ] );
             if ( $vsrp_exclude_categories == 1 ) {
                 $tmp = implode( ",-", $_POST[ 'vsrp_select_categories' ] );
@@ -214,6 +218,7 @@ function vsrp_admin_options() {
             update_option( 'vsrp_select_orderby', $vsrp_select_orderby );
             update_option( 'vsrp_select_order', $vsrp_select_order );
             update_option( 'vsrp_show_date', $vsrp_show_date );
+            update_option( 'vsrp_date_format', $vsrp_date_format );
             update_option( 'vsrp_show_category_link', $vsrp_show_category_link );
             update_option( 'vrsp_show_thumb', $vrsp_show_thumb );
             update_option( 'vsrp_speed', $vsrp_speed );
@@ -373,6 +378,26 @@ function vsrp_admin_options() {
                         </td>
                     </tr>
                     <tr>
+                        <th><?php _e( 'Date Format', 'vertical-scroll-recent-post' ); ?></th>
+                        <td>
+                            <fieldset>
+                                <legend class="screen-reader-text"><span><?php _e('Date Format', 'vertical-scroll-recent-post' ); ?></span></legend>
+                                <?php
+                                    $date_formats = array_unique( apply_filters( 'date_formats', array( 'Y-m-d', 'm/d/Y', 'd/m/Y', get_option( 'date_format' ) ) ) );
+
+                                    foreach ( $date_formats as $format ) {
+                                        echo "<label title='" . esc_attr( $format ) . "'><input type='radio' name='vsrp_date_format' value='" . esc_attr( $format ) . "'";
+                                        if ( $vsrp_date_format === $format ) {
+                                            echo " checked='checked'";
+                                        }
+                                        echo ' /> <span>' . date_i18n( $format ) . "</span></label><br />\n";
+                                    }
+                                ?>
+                                <span class="description"><?php _e( 'Last one contains the WordPress date format', 'vertical-scroll-recent-post' ); ?> </span>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
                         <th><?php _e( 'Display post\'s thumbnail', 'vertical-scroll-recent-post' ); ?></th>
                         <td>
                             <fieldset>
@@ -527,10 +552,12 @@ function vsrp_deactivation() {
     delete_option( 'vsrp_select_orderby' );
     delete_option( 'vsrp_select_order' );
     delete_option( 'vsrp_show_date' );
+    delete_option( 'vsrp_date_format' );
     delete_option( 'vsrp_show_category_link' );
     delete_option( 'vrsp_show_thumb' );
     delete_option( 'vsrp_speed' );
     delete_option( 'vsrp_seconds' );
+    delete_option( 'vsrp_timeout' );
 }
 
 function vsrp_textdomain() {
