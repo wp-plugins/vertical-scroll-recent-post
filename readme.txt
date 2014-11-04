@@ -6,8 +6,8 @@ Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Tags: Vertical, scroll, recent, post
 Requires at least: 3.4
 Tested up to: 4.0
-Version: 11.7
-Stable tag: 11.7
+Version: 11.7.1
+Stable tag: 11.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -63,19 +63,19 @@ Q4. Why only few characters are displayed in scroll title?
 
 == Upgrade Notice ==
 
-= 11.7 =
+= 11.7.1 =
+1. Fixed problem with empty categories select given in options page
 
-1. Added date format option. Default option is WordPres date format.
+= 11.7 =
+1. Added date format option, default option is WordPres date format
 
 = 11.6 =
-
 1. Changed options page layout, made it more user-friendly
 2. Added option to display thumbnail before post's title
 3. Changed option for displayed categories, users can now select them easier
 If something doesn't work, don't hesitate to contact support section in WordPress plugin's site
 
 = 11.5 =
-
 1. Added more options like: display post's date, display link to category, control speed of scroll, seconds between scrolls.
 2. Added CSS file and removed most of the inline CSS, remained values change through PHP so a PHP file acting as CSS file is required.
 3. Converted all TABs to spaces and applied WordPress Code style recommendations.
@@ -159,18 +159,18 @@ First version
 
 == Changelog ==
 
-= 11.7 =
+= 11.7.1 =
+1. Fixed problem with empty categories select given in options page
 
-1. Added date format option. Default option is WordPres date format.
+= 11.7 =
+1. Added date format option, default option is WordPres date format
 
 = 11.6 =
-
 1. Changed options page layout, made it more user-friendly
 2. Added option to display thumbnail before post's title
 3. Changed option for displayed categories, users can now select them easier
 
 = 11.5 =
-
 1. Added more options like: display post's date, display link to category, control speed of scroll, seconds between scrolls.
 2. Added CSS file and removed most of the inline CSS, remained values change through PHP so a PHP file acting as CSS file is required.
 3. Converted all TABs to spaces and applied WordPress Code style recommendations.
