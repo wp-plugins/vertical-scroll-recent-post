@@ -17,70 +17,145 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */ 
 
-function vsrp_scroll() {
-    vsrp_obj.scrollTop = vsrp_obj.scrollTop + 1;
-    vsrp_scrollPos++;
-    if ( (vsrp_scrollPos%vsrp_heightOfElm) == 0 ) {
-        vsrp_numScrolls--;
-        if ( vsrp_numScrolls == 0 ) {
-            vsrp_obj.scrollTop = '0';
-            vsrp_content();
-        } else {
-            if ( vsrp_scrollOn == 'true' ) {
-                vsrp_content();
+;!(function ($) {
+    $.fn.classes = function (callback) {
+        var classes = [];
+        $.each(this, function (i, v) {
+            var splitClassName = v.className.split(/\s+/);
+            for (var j in splitClassName) {
+                var className = splitClassName[j];
+                if (-1 === classes.indexOf(className)) {
+                    classes.push(className);
+                }
+            }
+        });
+        if ('function' === typeof callback) {
+            for (var i in classes) {
+                callback(classes[i]);
             }
         }
-    } else {
-        /* Speed values: 10 slow, 50 fast */
-        var speed = 60 - ( vsrp_speed * 10 );
-        setTimeout( "vsrp_scroll();", speed );
+        return classes;
+    };
+})(jQuery);
+
+function slideDown( element ) {
+    var divs;
+    var speed = element.attr( 'data-speed' ) * 1000;
+    var classes = element.classes();
+    var special_class = jQuery.grep( classes, function( n, i ) {
+        if ( n.indexOf( 'vsrp_id' ) > -1 )
+            return i;
+    });
+    special_class += 'vsrp_remove';
+
+    var count = jQuery( '.'+special_class );
+    if ( count.length == 0 ) {
+        divs = element.children();
+        var tmp = jQuery( divs[divs.length-1] ).clone();
+        element.prepend( tmp );
+        jQuery( divs[divs.length-1] ).addClass( special_class );
     }
+    divs = element.children();
+    var height = jQuery( divs[0] ).outerHeight();
+    var wanted_height = 0;
+
+    var top_tmp = divs.css( 'top' );
+    top_tmp = parseInt( top_tmp, 10 ) || 0;
+    if( top_tmp < 0 ) {
+        wanted_height = top_tmp * -1;
+    } else {
+        divs.css( 'top', height * -1 );
+    }
+
+    var top = jQuery( divs ).css( 'top' );
+    top = parseInt( top, 10 ) || 0;
+    if( wanted_height == 0 ) {
+        wanted_height = 0 - top;
+    }
+
+    jQuery( divs ).animate(
+        { top: "+="+wanted_height },
+        speed,
+        'linear',
+        function(){
+            jQuery( '.'+special_class ).remove();
+            divs.css( "top", 0 );
+        }
+    );
 }
 
-var vsrp_Num = 0;
-/*
-Creates amount to show + 1 for the scrolling ability to work
-scrollTop is set to top position after each creation
-Otherwise the scrolling cannot happen
-*/
-function vsrp_content() {
-    var tmp_vsrp = '';
+function slideUp( element ) {
+    var speed = element.attr( 'data-speed' ) * 1000;
+    var classes = element.classes();
+    var special_class = jQuery.grep( classes, function( n, i ) {
+        if ( n.indexOf( 'vsrp_id' ) > -1 )
+            return i;
+    });
+    special_class += 'vsrp_remove';
 
-    w_vsrp = vsrp_Num - parseInt( vsrp_numberOfElm );
-    if (w_vsrp < 0) {
-        w_vsrp = 0;
-    } else {
-        w_vsrp = w_vsrp%vsrp_array.length;
-    }
-    
-    // Show amount of vsrru
-    var elementsTmp_vsrp = parseInt( vsrp_numberOfElm ) + 1;
-    for ( i_vsrp = 0; i_vsrp < elementsTmp_vsrp; i_vsrp++ ) {
-        
-        tmp_vsrp += vsrp_array[ w_vsrp % vsrp_array.length ];
-        w_vsrp++;
-    }
+    var divs = element.children();
+    var tmp = jQuery( divs[0] ).clone();
+    var height = jQuery( divs[0] ).outerHeight();
+    element.append( tmp );
+    jQuery( divs[0] ).addClass( special_class );
+    var divs = element.children();
 
-    vsrp_obj.innerHTML  = tmp_vsrp;
-    
-    vsrp_Num            = w_vsrp;
-    vsrp_numScrolls     = vsrp_array.length;
-    vsrp_obj.scrollTop  = '0';
-    // start scrolling
-    setTimeout( "vsrp_scroll();", vsrp_seconds * 1000 );
+    var top = jQuery( divs ).css( 'top' );
+    top = parseInt( top, 10 ) || 0;
+    var wanted_height = height + top;
+
+    jQuery( divs ).animate(
+        { top: "-="+wanted_height },
+        speed,
+        'linear',
+        function(){
+            jQuery( '.'+special_class ).remove();
+            divs.css( "top", 0 );
+        }
+    );
 }
 
-function vsrp_options() {
-    jQuery( document ).ready( function() {
+jQuery( document ).ready( function(){
+    var tmp = 0;
+    jQuery.each( jQuery( '.vsrp_wrapper' ), function() {
+        var element = jQuery( this );
+        var class_element = 'vsrp_id_' + (tmp++);
+        var direction = element.attr( 'data-direction' );
+        var delay = element.attr( 'data-delay-seconds' ) * 1000;
+        element.addClass( class_element );
+        var intervalID;
+
+        if ( direction == 1 ) {
+            intervalID = setInterval( slideUp, delay, element );
+        } else {
+            intervalID = setInterval( slideDown, delay, element );
+        }
+        element.on( 'mouseenter', function() {
+            var tmp = jQuery( this ).children();
+            tmp.stop();
+            clearInterval( intervalID );
+        });
+        element.on( 'mouseleave', function() {
+            if ( direction == 1 ) {
+                intervalID = setInterval( slideUp, delay, element );
+            } else {
+                intervalID = setInterval( slideDown, delay, element );
+            }
+        });
+    });
+
+    if ( jQuery( ".nav-tab-wrapper > a" ).length >= 1 ) {
         jQuery( ".nav-tab-wrapper > a" ).click( function() {
-            jQuery( ".fade" ).hide();
             jQuery( ".nav-tab-wrapper > a" ).removeClass( "nav-tab-active" );
             jQuery( this ).addClass( "nav-tab-active" );
             jQuery( ".table" ).addClass( "ui-tabs-hide" );
-            
+
             var item_clicked = jQuery( this ).attr( "href" );
             jQuery( item_clicked ).removeClass( "ui-tabs-hide" );
             return false;
-        } );
-    } );
-}
+        });
+    }
+    if ( jQuery( ".fade" ).length >= 1 ) {
+        jQuery( ".fade" ).delay( 1500 ).fadeOut();
+    }
+} );
