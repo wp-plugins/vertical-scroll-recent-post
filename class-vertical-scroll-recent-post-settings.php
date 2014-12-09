@@ -427,7 +427,7 @@
                                         <legend class="screen-reader-text"><span><?php _e( 'Scrolling Speed', 'vertical-scroll-recent-post' ); ?></span></legend>
                                         <label for="vsrp_speed">
                                             <?php _e( 'Fast', 'vertical-scroll-recent-post' ); ?> 
-                                                <input name="vsrp_speed" type="range" value="<?php echo $vsrp_speed; ?>"  id="vsrp_speed" min="0.5" max="2.5" step="0.5" /> 
+                                                <input name="vsrp_speed" type="range" value="<?php echo $vsrp_speed; ?>"  id="vsrp_speed" min="0.5" max="3.5" step="0.5" /> 
                                             <?php _e( 'Slow', 'vertical-scroll-recent-post' ); ?> 
                                             <br /><?php _e( 'Select how fast you want the widget to scroll.', 'vertical-scroll-recent-post' ); ?>
                                         </label>
@@ -453,8 +453,8 @@
                                         <legend class="screen-reader-text"><span><?php _e( 'Scrolling Direction', 'vertical-scroll-recent-post' ); ?></span></legend>
                                         <label for="vsrp_show_category_link">
                                             <select name="vsrp_reverse" id="vsrp_reverse">
-                                                <option value='1' <?php if ( $vsrp_reverse == 1 ) echo "selected='selected'"; ?> >Up -> Down</option>
-                                                <option value='0' <?php if ( $vsrp_reverse == 0 ) echo "selected='selected'"; ?> >Down -> Up</option>
+                                                <option value='1' <?php if ( $vsrp_reverse == 1 ) echo "selected='selected'"; ?> >Down -> Up</option>
+                                                <option value='0' <?php if ( $vsrp_reverse == 0 ) echo "selected='selected'"; ?> >Up -> Down</option>
                                             </select>
                                             <br /><?php _e( 'Please select the direction of scrolling.', 'vertical-scroll-recent-post' ); ?>
                                         </label>

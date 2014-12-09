@@ -31,8 +31,10 @@
         static function activate() {
             if ( ! current_user_can ( 'activate_plugins' ) )
                 return "You cannot activate it";
-
-            return Vsrp_Widget_Installer::install();
+            if ( !get_option( 'vsrp_scrollings' ) )
+                return Vsrp_Widget_Installer::install();
+            else
+                return;
         }
         
         static function deactivate() { }

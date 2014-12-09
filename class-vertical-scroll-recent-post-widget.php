@@ -132,14 +132,14 @@ class Vertical_Recent_Post_Widget extends WP_Widget {
                     }
                     // Post it self
                     $vsrp_link = get_permalink( $vsrp_data->ID );
-                    $vsrp_list .= "<div class=\"vsrp_text\"><a href='$vsrp_link'>$vsrp_post_title</a>";
+                    $vsrp_list .= "<a href='$vsrp_link'>$vsrp_post_title</a>";
                     // Post's date
                     if ( $vsrp_show_date ) {
                         $vsrp_post_date = date( $vsrp_date_format, strtotime( $vsrp_data->post_date ) );
-                        $vsrp_list .= " -- <span class='vrsp_date'>$vsrp_post_date</span>";
+                        $vsrp_list .= "<span class='vrsp_date'> -- $vsrp_post_date</span>";
                     }
                     // Ending of post's div
-                    $vsrp_list .= "</div></div>";
+                    $vsrp_list .= "</div>";
                     $vsrp_count++;
                 }
 

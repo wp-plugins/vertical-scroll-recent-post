@@ -6,8 +6,8 @@ Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Tags: Vertical, scroll, recent, post
 Requires at least: 3.4
 Tested up to: 4.0
-Version: 11.8
-Stable tag: 11.8
+Version: 11.9
+Stable tag: 11.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -64,6 +64,11 @@ Q4. Why only few characters are displayed in scroll title?
 3. Admin Screen. 
 
 == Upgrade Notice ==
+
+= 11.9 =
+1. Well documented Javascript code
+2. After deactivating plugin, configurations were lost. Fixed that.
+3. Changed HTML to fix problem with line wrapping
 
 = 11.8 =
 1. Rewritten Javascript code
@@ -151,6 +156,11 @@ First version
 
 
 == Changelog ==
+
+= 11.9 =
+1. Well documented Javascript code
+2. After deactivating plugin, configurations were lost. Fixed that.
+3. Changed HTML to fix problem with line wrapping
 
 = 11.8 =
 1. Rewritten Javascript code

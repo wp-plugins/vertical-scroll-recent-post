@@ -6,9 +6,16 @@
 }
 
 .vsrp_div{
+    font-size: 13px;
+    font-size: 0.928571429rem;
     padding: 4px 0;
     line-height: 1.1;
     position: relative;
+    vertical-align: top;
+}
+
+.vsrp_div > img {
+    margin: 0 2% 0 0;
 }
 
 .vsrp_error{
@@ -23,12 +30,6 @@
     margin: 2% 0 0 0;
     float: right;
     font-style: italic;
-}
-
-.vsrp_text {
-    display: inline-block;
-    padding: 0 0 0 2%;
-    font-size: 12px;
 }
 
 .wp-post-image{
