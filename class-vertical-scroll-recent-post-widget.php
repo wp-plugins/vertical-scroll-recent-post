@@ -112,8 +112,13 @@ class Vertical_Recent_Post_Widget extends WP_Widget {
             if( !is_numeric( $dis_num_user ) ) {
                 $dis_num_user = 5;
             }
-
-            $vsrp_data = query_posts( 'cat='.$vsrp_select_categories.'&orderby='.$vsrp_select_orderby.'&order='.$vsrp_select_order.'&showposts='.$num_user );
+            $args = array(
+                'posts_per_page'   => $num_user,
+                'category__in'     => explode( ',', $vsrp_select_categories ),
+                'orderby'          => $vsrp_select_orderby,
+                'order'            => $vsrp_select_order
+                );
+            $vsrp_data = get_posts( $args );
             $vsrp_list = "";
             if ( !empty( $vsrp_data ) ) {
                 $vsrp_count = 0;
@@ -148,7 +153,7 @@ class Vertical_Recent_Post_Widget extends WP_Widget {
                 $html = "<div style=\"height: " . $whole_height . "px;\" class=\"vsrp_wrapper\" ";
                 $html .= " data-delay-seconds=\"$vsrp_seconds\" data-speed=\"$vsrp_speed\" data-direction=\"$vsrp_reverse\">$vsrp_list</div>";
                 if ( $vsrp_show_category_link ) {
-                    $html .= "<span id=\"vsrp_category_link\"><a href=\"" . get_category_link( $vsrp_select_categories ) . "\">";
+                    $html .= "<span id=\"vsrp_category_link\"><a href=\"?cat=" . $vsrp_select_categories . "\">";
                     $html .= __( 'Show all of ', 'vertical-scroll-recent-post') . $vsrp_title;
                     $html .= "</a></span>";
                 }
@@ -158,7 +163,6 @@ class Vertical_Recent_Post_Widget extends WP_Widget {
         }
         if ( $error )
             $html = "<div class=\"vsrp_error\">VSRP: " . __( 'No data available', 'vertical-scroll-recent-post' ) . "</div>";
-        wp_reset_query();
         return $html;
     }
 
