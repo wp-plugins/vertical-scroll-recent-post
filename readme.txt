@@ -5,9 +5,9 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/
 Tags: Vertical, scroll, recent, post
 Requires at least: 3.4
-Tested up to: 4.0
-Version: 12
-Stable tag: 12
+Tested up to: 4.2.2
+Version: 12.1
+Stable tag: 12.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -64,6 +64,9 @@ Q4. Why only few characters are displayed in scroll title?
 3. Admin Screen. 
 
 == Changelog ==
+
+= 12.1 =
+1. Tested up to 4.2.2
 
 = 12 =
 1. Fixed bug with children categories of posts.
